@@ -27,17 +27,6 @@ SRCS_IO  = $(LIBFT_DIR)/io/ft_putchar_fd.c \
            $(LIBFT_DIR)/io/ft_putnbr_fd.c    \
            $(LIBFT_DIR)/io/ft_putstr_fd.c
 
-# Linked list bonus functions (in libft/lst/)
-SRCS_LST = $(LIBFT_DIR)/lst/ft_lstnew_bonus.c        \
-           $(LIBFT_DIR)/lst/ft_lstadd_front_bonus.c   \
-           $(LIBFT_DIR)/lst/ft_lstsize_bonus.c          \
-           $(LIBFT_DIR)/lst/ft_lstlast_bonus.c          \
-           $(LIBFT_DIR)/lst/ft_lstadd_back_bonus.c      \
-           $(LIBFT_DIR)/lst/ft_lstdelone_bonus.c        \
-           $(LIBFT_DIR)/lst/ft_lstclear_bonus.c         \
-           $(LIBFT_DIR)/lst/ft_lstiter_bonus.c          \
-           $(LIBFT_DIR)/lst/ft_lstmap_bonus.c
-
 # Memory functions (in libft/mem/)
 SRCS_MEM = $(LIBFT_DIR)/mem/ft_bzero.c    \
            $(LIBFT_DIR)/mem/ft_calloc.c   \
@@ -77,7 +66,6 @@ LIBFT_SRCS = $(SRCS_IO) $(SRCS_LST) $(SRCS_MEM) $(SRCS_STR)
 
 # Compute corresponding object file lists (preserving module structure)
 OBJS_IO  = $(patsubst $(LIBFT_DIR)/io/%.c,$(OBJS_DIR)/io/%.o,$(SRCS_IO))
-OBJS_LST = $(patsubst $(LIBFT_DIR)/lst/%.c,$(OBJS_DIR)/lst/%.o,$(SRCS_LST))
 OBJS_MEM = $(patsubst $(LIBFT_DIR)/mem/%.c,$(OBJS_DIR)/mem/%.o,$(SRCS_MEM))
 OBJS_STR = $(patsubst $(LIBFT_DIR)/str/%.c,$(OBJS_DIR)/str/%.o,$(SRCS_STR))
 OBJECTS  = $(OBJS_IO) $(OBJS_LST) $(OBJS_MEM) $(OBJS_STR)
@@ -91,10 +79,6 @@ $(OBJS_DIR)/io/%.o: $(LIBFT_DIR)/io/%.c
 	@echo "$(GREEN)Compiling I/O: $< $(RESET)"
 	$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDE_DIR)
 
-$(OBJS_DIR)/lst/%.o: $(LIBFT_DIR)/lst/%.c
-	@mkdir -p $(dir $@)
-	@echo "$(GREEN)Compiling LST: $< $(RESET)"
-	$(CC) $(CFLAGS) -c $< -o $@ -I $(INCLUDE_DIR)
 
 $(OBJS_DIR)/mem/%.o: $(LIBFT_DIR)/mem/%.c
 	@mkdir -p $(dir $@)

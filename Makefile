@@ -1,5 +1,7 @@
 # List of directories containing Makefiles
-SUBDIRS := libft	libft/io/ft_printf	libft/io/get_next_line
+
+DS_DIR      = libft/DS
+SUBDIRS := libft	libft/io/ft_printf	libft/io/get_next_line		$(DS_DIR)
 
 # Function to call make in all subdirectories
 define make_all_modules
