@@ -7,7 +7,7 @@ short dlist_insert_before(t_dlist *list, t_dlist_node *node, void *data)
     if (!node)
         return (-1);
     new_node = malloc(sizeof(t_dlist_node));
-    if (new_node)
+    if (!new_node)
         return (-2);
 
     new_node->data = data;

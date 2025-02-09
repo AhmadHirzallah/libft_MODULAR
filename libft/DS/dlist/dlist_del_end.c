@@ -14,5 +14,5 @@ void dlist_del_end(t_dlist *list)
     else
         list->head = NULL;
     
-    dlist_delete_node(list, temp);
+    dlist_del_node(list, temp);
 }

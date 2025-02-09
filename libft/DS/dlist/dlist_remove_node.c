@@ -10,5 +10,5 @@ void dlist_remove_node(t_dlist *list, t_dlist_node *node)
     if (node == list->tail)
         list->tail = node->prev;
     
-    dlist_delete_node(list, node);
+    dlist_del_node(list, node);
 }

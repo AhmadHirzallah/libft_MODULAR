@@ -20,10 +20,11 @@ YELLOW      = \033[0;93m
 SRCS_DS = \
     $(DS_DIR)/dlist/dlist_back.c \
     $(DS_DIR)/dlist/dlist_clear.c \
-    $(DS_DIR)/dlist/dlist_delete_front.c \
-    $(DS_DIR)/dlist/dlist_delete_node.c \
+    $(DS_DIR)/dlist/dlist_del_end.c \
+    $(DS_DIR)/dlist/dlist_del_front.c \
+    $(DS_DIR)/dlist/dlist_del_node.c \
     $(DS_DIR)/dlist/dlist_destroy.c \
-    $(DS_DIR)/dlist/dlist_empty.c \
+    $(DS_DIR)/dlist/is_dlist_empty.c \
     $(DS_DIR)/dlist/dlist_find_node.c \
     $(DS_DIR)/dlist/dlist_foreach_on_data.c \
     $(DS_DIR)/dlist/dlist_front.c \
@@ -48,15 +49,58 @@ SRCS_LST = \
     $(DS_DIR)/lst/ft_lstiter_bonus.c \
     $(DS_DIR)/lst/ft_lstmap_bonus.c
 
+
+
+# Stack sources
+SRCS_STACK = \
+    $(DS_DIR)/stack/is_stack_empty.c \
+    $(DS_DIR)/stack/stack_clear.c \
+    $(DS_DIR)/stack/stack_clone.c \
+    $(DS_DIR)/stack/stack_create.c \
+    $(DS_DIR)/stack/stack_destroy.c \
+    $(DS_DIR)/stack/stack_iter_on_data.c \
+    $(DS_DIR)/stack/stack_peek.c \
+    $(DS_DIR)/stack/stack_pop.c \
+    $(DS_DIR)/stack/stack_push.c \
+    $(DS_DIR)/stack/stack_size.c
+
+# Queue sources
+SRCS_QUEUE = \
+    $(DS_DIR)/queue/dequeue.c \
+    $(DS_DIR)/queue/enqueue.c \
+    $(DS_DIR)/queue/is_queue_empty.c \
+    $(DS_DIR)/queue/is_queue_full.c \
+    $(DS_DIR)/queue/queue_clear.c \
+    $(DS_DIR)/queue/queue_create.c \
+    $(DS_DIR)/queue/queue_destroy.c \
+    $(DS_DIR)/queue/queue_front.c \
+    $(DS_DIR)/queue/queue_iter.c \
+    $(DS_DIR)/queue/queue_rear.c \
+    $(DS_DIR)/queue/queue_size.c \
+    $(DS_DIR)/queue/queue_split.c
+
+
+
+
+
+# Existing pattern rules will handle compilation
+
+
+
+
+OBJS_STACK = $(patsubst $(DS_DIR)/%.c,$(OBJS_DIR)/%.o,$(SRCS_STACK))
+OBJS_QUEUE = $(patsubst $(DS_DIR)/%.c,$(OBJS_DIR)/%.o,$(SRCS_QUEUE))
 OBJS_DS  = $(patsubst $(DS_DIR)/%.c,$(OBJS_DIR)/%.o,$(SRCS_DS))
 OBJS_LST = $(patsubst $(DS_DIR)/%.c,$(OBJS_DIR)/%.o,$(SRCS_LST))
 
+# Update the all target
 all: $(NAME)
 
-$(NAME): $(OBJS_DS) $(OBJS_LST)
+# Update the library creation rule
+$(NAME): $(OBJS_DS) $(OBJS_LST) $(OBJS_STACK) $(OBJS_QUEUE)
 	@mkdir -p $(dir $(NAME))
 	@echo "$(MAGENTA)Creating DS library: $(NAME)$(RESET)"
-	$(AR) $(ARFLAGS) $(NAME) $(OBJS_DS) $(OBJS_LST)
+	$(AR) $(ARFLAGS) $(NAME) $(OBJS_DS) $(OBJS_LST) $(OBJS_STACK) $(OBJS_QUEUE)
 
 $(OBJS_DIR)/%.o: $(DS_DIR)/%.c
 	@mkdir -p $(dir $@)

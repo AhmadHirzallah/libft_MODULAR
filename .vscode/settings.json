@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "dlist.h": "c",
+        "stack.h": "c",
+        "queue.h": "c",
+        "is_queue_full": "cpp"
+    }
+}
