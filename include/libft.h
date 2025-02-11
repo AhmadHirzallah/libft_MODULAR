@@ -116,7 +116,7 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 
 /**
 
-	* @brief Iterates the list 'lst' and applies 
+	* @brief Iterates the list 'lst' and applies
 	'f' func on the content of each node.
  *
  * @param lst The address of a pointer to a node.
@@ -131,11 +131,11 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 
 /**
 
-	* @brief Iterates the list 'lst' 
+	* @brief Iterates the list 'lst'
 	and applies the function 'f' on the content of each node.
 
 	* Creates a new list resulting from
-	 the successive applications of the function 'f'.
+		the successive applications of the function 'f'.
  * The 'del' function is used to delete the content of a node.
  *
  * @param lst The address of a pointer to a node.
@@ -145,7 +145,7 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
  *
  * @example
 
-	* void *duplicate_content(void *content) 
+	* void *duplicate_content(void *content)
 	{ return (ft_strdup((char *)content)); }
  * t_list *new_list = ft_lstmap(my_list, duplicate_content, free);
  * // Creates a new list with duplicated contents.
