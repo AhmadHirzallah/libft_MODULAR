@@ -6,7 +6,7 @@
 /*   By: ahirzall <ahirzall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 17:10:00 by ahirzall          #+#    #+#             */
-/*   Updated: 2025/02/15 16:55:16 by ahirzall         ###   ########.fr       */
+/*   Updated: 2025/02/22 17:29:51 by ahirzall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ typedef union u_value_data
 	float			as_float;
 
 	double			as_double;
+
+	int				*as_int_ptr;
 }					t_value_data;
 
 typedef struct s_value
@@ -757,5 +759,6 @@ int					ft_atol(const char *nptr);
 short				is_str_space(int chr);
 __int128			ft_atoint128(const char *nptr);
 char				*nbr_to_str(__int128_t nbr);
+size_t				str_cmpr(const char *s1, const char *s2);
 
 #endif

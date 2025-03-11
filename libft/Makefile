@@ -36,7 +36,8 @@ FILES_STR  := ft_atoi ft_isalnum ft_isalpha ft_isascii ft_isdigit ft_isprint \
               ft_itoa ft_split ft_strchr ft_strdup ft_striteri ft_strjoin ft_strlcat \
               ft_strlcpy ft_strlen ft_strmapi ft_strncmp ft_strnstr ft_strrchr \
               ft_strtrim ft_substr ft_tolower ft_toupper split_multi ft_atol \
-              is_str_space str_tok_sttc str_nullify_delimiters ft_atoint128 nbr_to_str
+              is_str_space str_tok_sttc str_nullify_delimiters ft_atoint128 nbr_to_str \
+			  str_cmpr
 
 FILES_DATA_TYPES := data_types
 
@@ -57,8 +58,8 @@ OBJS_DATA_TYPES  := $(patsubst $(LIBFT_DIR)/data_types/%.c, $(OBJS_DIR)/data_typ
 
 OBJS      := $(OBJS_IO) $(OBJS_MEM) $(OBJS_STR) $(OBJS_DATA_TYPES)
 
-# === Build Rules ===
-.PHONY: all clean fclean re bonus
+
+bonus: all
 
 all: $(NAME)
 
@@ -101,6 +102,5 @@ fclean: clean
 
 re: fclean all
 
-bonus: all
 
 .PHONY: all clean fclean re bonus

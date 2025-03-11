@@ -6,7 +6,7 @@
 /*   By: ahirzall <ahirzall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 13:36:33 by ahirzall          #+#    #+#             */
-/*   Updated: 2025/02/15 13:36:35 by ahirzall         ###   ########.fr       */
+/*   Updated: 2025/02/20 07:42:16 by ahirzall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ typedef struct t_list_node
 	t_value				data_s;
 	struct t_list_node	*next;
 	struct t_list_node	*prev;
+	struct t_list_node	*target;
+	int					push_cost;
 	long				index;
+	unsigned int		flags;
 }						t_list_node;
 
 typedef struct s_circular_lst

@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   circ_stack_peek.c                                  :+:      :+:    :+:   */
+/*   str_cmpr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahirzall <ahirzall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/19 15:57:02 by ahirzall          #+#    #+#             */
-/*   Updated: 2025/02/19 19:36:42 by ahirzall         ###   ########.fr       */
+/*   Created: 2025/02/22 17:27:54 by ahirzall          #+#    #+#             */
+/*   Updated: 2025/02/22 21:24:03 by ahirzall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "circular_stack.h"
-#include <stdlib.h>
+#include "libft.h"
 
-void	*peek_circ_stack(const t_stack *s)
+size_t	str_cmpr(const char *s1, const char *s2)
 {
-	if (!s || s->list.size == 0)
-		return (NULL);
-	return (s->list.head->data_s.data.as_ptr);
+	size_t	i;
+
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

@@ -6,24 +6,24 @@
 /*   By: ahirzall <ahirzall@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 14:53:17 by ahirzall          #+#    #+#             */
-/*   Updated: 2025/02/19 19:57:45 by ahirzall         ###   ########.fr       */
+/*   Updated: 2025/02/22 21:24:36 by ahirzall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stddef.h>
 
-char	*str_tok_sttc(char *str, const char *delimiters)
 /*
-This Function will create tokens but in many rounds; every round it will return one tocken!!
+This Function will create tokens but in many rounds;
+every round it will return one tocken!!
 
 if (!*next_ptr_pos)
 {
 	*next_ptr_pos = '\0';
 	next_ptr_pos++;
 }
-
 */
+char	*str_tok_sttc(char *str, const char *delimiters)
 {
 	static char	*next_ptr_pos = NULL;
 	char		*tocken_start;

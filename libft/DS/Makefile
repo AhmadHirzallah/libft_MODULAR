@@ -49,14 +49,6 @@ FILES_STACK := stack/is_stack_empty       stack/stack_clear      \
 				stack/stack_peek           stack/stack_pop        \
 				stack/stack_push           stack/stack_size
 
-# Queue Files
-FILES_QUEUE := queue/dequeue            queue/enqueue          \
-				queue/is_queue_empty     queue/is_queue_full    \
-				queue/queue_clear        queue/queue_create     \
-				queue/queue_destroy      queue/queue_front      \
-				queue/queue_iter         queue/queue_rear       \
-				queue/queue_size         queue/queue_split
-
 # Circular List Files
 FILES_CIRC  := circular_list/circ_list_swap_first_2 circular_list/circ_list_clear \
 				circular_list/circ_list_foreach        circular_list/circ_list_front \
@@ -66,28 +58,16 @@ FILES_CIRC  := circular_list/circ_list_swap_first_2 circular_list/circ_list_clea
 				circular_list/circ_lst_push_front_into_other \
 				circular_list/circ_lst_rev_rotate       circular_list/circ_lst_rotate
 
-# Circular Stack Files
-FILES_CIRC_STACK := stack_circular/circ_stack_clear  stack_circular/circ_stack_clone \
-					stack_circular/circ_stack_create stack_circular/circ_stack_destroy \
-					stack_circular/circ_stack_iter_on_data stack_circular/circ_stack_peek \
-					stack_circular/circ_stack_pop    stack_circular/circ_stack_push \
-					stack_circular/circ_stack_rotate stack_circular/circ_stack_size \
-					stack_circular/circ_stack_swap_top2 stack_circular/is_circ_stack_empty \
-					stack_circular/rev_rotate_circ_stack stack_circular/push_circ_stack_end \
-					stack_circular/circ_stck_remove_top_node stack_circular/circ_stck_push_stack \
-					stack_circular/circ_stck_insert_node_at_top
 
 # ============================================================================ #
 #                             Path Construction                                #
 # ============================================================================ #
 
 # Build full source paths (adding .c extension)
+SRC_CIRC       := $(addprefix $(DS_ROOT)/, $(addsuffix .c, $(FILES_CIRC)))
 SRC_DLIST      := $(addprefix $(DS_ROOT)/, $(addsuffix .c, $(FILES_DLIST)))
 SRC_LST        := $(addprefix $(DS_ROOT)/, $(addsuffix .c, $(FILES_LST)))
 SRC_STACK      := $(addprefix $(DS_ROOT)/, $(addsuffix .c, $(FILES_STACK)))
-SRC_QUEUE      := $(addprefix $(DS_ROOT)/, $(addsuffix .c, $(FILES_QUEUE)))
-SRC_CIRC       := $(addprefix $(DS_ROOT)/, $(addsuffix .c, $(FILES_CIRC)))
-SRC_CIRC_STACK := $(addprefix $(DS_ROOT)/, $(addsuffix .c, $(FILES_CIRC_STACK)))
 
 # Aggregate DS sources
 SRCS_DS := $(SRC_DLIST) $(SRC_LST) $(SRC_STACK) $(SRC_QUEUE) $(SRC_CIRC) $(SRC_CIRC_STACK)
